@@ -26,8 +26,10 @@ pipeline {
       echo "4.Push Docker Image Stage" 
       withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 
      'dockerHubPassword', usernameVariable: 'dockerHubUser')]) { 
-      sh "docker login -u ${dockerHubUser} -p ${dockerHubPassword}" 
-      sh "docker push xianchao/jenkins-demo:${build_tag}" 
+      sh """
+      echo "wangcan!123" |  docker login --username ${dockerHubUser} --password-stdin ${dockerHubPassword} 
+      docker push 192.168.92.133/test/jenkins-demo:${build_tag}
+      """
         } 
     } 
  }
