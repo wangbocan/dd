@@ -27,7 +27,7 @@ pipeline {
       withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 
      'dockerHubPassword', usernameVariable: 'dockerHubUser')]) { 
       sh """
-      echo "wangcan!123" |  docker login --username ${dockerHubUser} --password-stdin ${dockerHubPassword} 
+      echo "wangcan!123" |  docker login --username ${dockerHubUser} --password-stdin ${dockerHubPassword} 192.168.92.133
       docker push 192.168.92.133/test/jenkins-demo:${build_tag}
       """
         } 
