@@ -4,7 +4,7 @@ pipeline {
         stage('Clone') { 
             steps{
           echo "1.Clone Stage" 
-          git url: "https://github.com/luckylucky421/jenkins-sample.git" 
+          git url: "https://github.com/wangbocan/dd.git" 
           script { 
               build_tag = sh(returnStdout: true, script: 'git rev-parse --short HEAD').trim() 
         } 
@@ -18,7 +18,7 @@ pipeline {
  stage('Build') { 
      steps{
        echo "3.Build Docker Image Stage" 
-       sh "docker build -t xianchao/jenkins-demo:${build_tag} ." 
+       sh "docker build -t 192.168.92.133/test/jenkins-demo:${build_tag} ." 
    } 
  }
  stage('Push') { 
